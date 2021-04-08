@@ -40,6 +40,6 @@ public class SpinWords {
     public static void main(String[] args) {
         //System.out.println(spinner("hi"));
         //System.out.println(spinner("helo"));
-        System.out.println(spinWords("Hello how are you incredible"));
+        System.out.println(spinWords("Hello how are you"));
     }
 }
