@@ -1,3 +1,7 @@
+// This Solution Turns a String of words that
+// the Words have been splited by '-' or '_' to
+// CamelCase.
+
 package com.company;
 
 import java.util.ArrayList;
