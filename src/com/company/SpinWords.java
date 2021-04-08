@@ -1,3 +1,5 @@
+// This Solution Spins Words That Have More Than 4 letters.
+
 package com.company;
 
 import java.util.ArrayList;
