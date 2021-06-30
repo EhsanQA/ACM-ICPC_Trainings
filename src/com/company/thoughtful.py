@@ -11,3 +11,4 @@ print("WHAT IS UP?")
 print("HOW ARE YOU DOING?")
 print("HOW IS EVERYTHING GOING?")
 print("System.out.println()")
+print("list(set([1, 2, 1, 4, 2, 5]))"
