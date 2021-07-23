@@ -23,6 +23,9 @@ int main() {
             ai++;
             aCount++;
         }
+        if (ai == m) {
+            break;
+        }
     }
     cout << aCount;
     return 0;
