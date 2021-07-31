@@ -1,5 +1,3 @@
-# CodeWars
-Code Wars Kata Solutions
-
+# ACM-ICPC / CodeWars / CodeForces Trainings
 
 https://www.codewars.com/users/EhsanQA
