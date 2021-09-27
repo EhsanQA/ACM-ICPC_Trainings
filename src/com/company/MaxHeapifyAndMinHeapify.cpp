@@ -31,6 +31,28 @@ void maxHeapify(int i) {
     }
 }
 
+void maxHeapifyWithoutRecursion(int i) {
+    while (true) {
+        int l = left(i);
+        int r = right(i);
+        int largest;
+        if (l < heapSize && a[l] > a[i])
+            largest = l;
+        else
+            largest = i;
+        if (r < heapSize && a[r] > a[largest])
+            largest = r;
+        if (largest != i) {
+            int temp = a[i];
+            a[i] = a[largest];
+            a[largest] = temp;
+            i = largest
+        } else {
+            return;
+        }
+    }
+}
+
 void minHeapify(int i) {
     int l = left(i);
     int r = right(i);
