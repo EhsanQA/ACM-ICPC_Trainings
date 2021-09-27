@@ -31,6 +31,25 @@ void maxHeapify(int i) {
     }
 }
 
+void minHeapify(int i) {
+    int l = left(i);
+    int r = right(i);
+    int smallest;
+    if (l < heapSize && a[l] < a[i])
+        smallest = l;
+    else
+        smallest = i;
+    if (r < heapSize && a[r] < a[smallest])
+        smallest = r;
+    if (smallest != i) {
+        int temp = a[i];
+        a[i] = a[smallest];
+        a[smallest] = temp;
+        minHeapify(smallest);
+    }
+}
+
+
 int main() {
     cin >> heapSize;
     a.push_back(-1);
@@ -42,6 +61,7 @@ int main() {
     // for (int i = 1; i <= heapSize / 2; i++)
     //     maxHeapify(i);
     maxHeapify(1);
+    minHeapify(1);
     for (int i = 1; i <= heapSize; i++)
         cout << a[i] << " ";
     cout << endl;
