@@ -5,6 +5,8 @@ using namespace std;
 int n;
 vector<int> a;
 
+// worst case Theta(n ^ 2);
+
 int partition(int l, int r) {
     int x = a[r];
     int i = l - 1;
