@@ -1,0 +1,109 @@
+1)
+
+for (i = 0; i < 100; i++)
+	s = s + x[i];
+
+
+$1 : x[0] address in cache;
+$2 : x (array) index (= 0 at first) in cache (which grows 4 times each loop);
+$3 : s (= 0 at first);
+$4 : 100;
+$5 : address of x[i];
+$6 : x[i];
+$7 : address of x[i] (= $1 at first);
+$8 : i (= 0 at first);
+
+Code:
+
+Loop:
+beq		$8, $4, ExitLoop;
+add 		$7, $1, $2;
+lw		$6, 0($7);
+add 		$3, $3, $6;
+addi 		$2, $2, 4;
+addi 		$8, $8, 1;
+j 		Loop;
+
+ExitLoop:	
+
+
+2)
+
+for (i = 0; i < 100; i++)
+	x[i] = s + x[i];
+
+
+$1 : x[0] address in cache;
+$2 : x (array) index (= 0 at first) in cache (which grows 4 times each loop);
+$3 : s;
+$4 : 100;
+$5 : address of x[i];
+$6 : x[i];
+$7 : address of x[i] (= $1 at first);
+$8 : i (= 0 at first);
+
+Code:
+
+Loop:
+beq		$8, $4, ExitLoop;
+add 		$7, $1, $2;
+lw		$6, 0($7);
+add 		$6, $3, $6;
+sw 		$6, 0($7);
+addi 		$2, $2, 4;
+addi 		$8, $8, 1;
+j 		Loop;
+
+ExitLoop:	
+
+
+3)
+
+a = fibonacci(b);
+
+
+$1 : fib(i - 2) (= 1 at first);
+$2 : fib(i - 1) (= 1 at first);
+$3 : i (= 3 at first);
+$4 : fib(i);
+$5 : b + 1;
+$6 : a (= 0 at first);
+
+Code:
+
+Loop:
+beq 		$3, $5, ExitLoop;
+add  		$4, $1, $2;
+add 		$1, $0, $2;
+add 		$2, $0, $4;
+addi 		$3, $3, 1;
+j 		Loop;
+
+ExitLoop:	
+		add 		$6, $0, $4;
+
+
+
+
+
+4)
+
+a = b  c;
+
+
+$1 : b;
+$2 : c;
+$3 : a (= b at first);
+$4 : count (= 1 at first);
+
+Code:
+
+Loop:
+beq 		$2, $4, ExitLoop;
+add 		$3, $3, $1;
+addi 		$4, $4, 1;
+j 		Loop;
+
+ExitLoop:	
+
+
