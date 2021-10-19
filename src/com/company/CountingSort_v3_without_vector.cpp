@@ -5,7 +5,8 @@ using namespace std;
 int n, k;
 
 int main() {
-
+    // O(k + n); k = max(a) and n = a.size
+    
     // initializing "a" and "result";
     cin >> n;
     int a[n + 1];
