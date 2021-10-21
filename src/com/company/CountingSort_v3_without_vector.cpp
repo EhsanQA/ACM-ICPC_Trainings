@@ -44,11 +44,9 @@ int main() {
     // setting "result" from "c";
     int result_temp_index = 1;
     for (int i = 1; i <= k; i++) {
-        if (c[i] != -1) {
-            for (int j = 0; j < c[i]; j++)
-                result[result_temp_index + j] = i;
-            result_temp_index += c[i];
-        }
+        for (int j = 0; j < c[i]; j++)
+            result[result_temp_index + j] = i;
+        result_temp_index += c[i];
     }
 
     // printing the sorted "result" array;
