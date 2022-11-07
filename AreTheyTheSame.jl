@@ -19,6 +19,8 @@ module Same
           end
           index += 1
         end
+    
+    
         return true
     end
 end
